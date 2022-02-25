@@ -6,3 +6,5 @@ numpy==1.18.1
 WTForms==3.0.1
 MarkupSafe==1.1.1
 Werkzeug==0.16.0
+itsdangerous==1.1.0
+Click==7.0
