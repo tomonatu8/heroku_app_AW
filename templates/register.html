@@ -19,12 +19,12 @@
 
 {% if number_of_task %}
 {% for i in number_of_task %}
-   <li>Task {{ i+1 }} 1<input type="range" name="sliderA_1" min="1" max="100">100</li><br>
+   <li>Task {{ i+1 }} 1<input type="range" name="sliderA_1" min="1" max="100" value="50">100</li><br>
 {% endfor %}
 {% else %}
-    Task1 1<input type="range" name="sliderA_1" min="1" max="100">100<br>
-    Task2 1<input type="range" name="sliderA_1" min="1" max="100">100<br>
-    Task3 1<input type="range" name="sliderA_1" min="1" max="100">100<br>
+    Task1 1<input type="range" name="sliderA_1" min="1" max="100" value="50">100<br>
+    Task2 1<input type="range" name="sliderA_1" min="1" max="100" value="50">100<br>
+    Task3 1<input type="range" name="sliderA_1" min="1" max="100" value="50">100<br>
 {% endif %}
    
     
@@ -34,12 +34,12 @@
    
 {% if number_of_task %}
 {% for i in number_of_task %}
-   <li>Task {{ i+1 }} 1<input type="range" name="sliderB_1" min="1" max="100">100</li><br>
+   <li>Task {{ i+1 }} 1<input type="range" name="sliderB_1" min="1" max="100" value="50">100</li><br>
 {% endfor %}
 {% else %}
-    Task1 1<input type="range" name="sliderB_1" min="1" max="100">100<br>
-    Task2 1<input type="range" name="sliderB_1" min="1" max="100">100<br>
-    Task3 1<input type="range" name="sliderB_1" min="1" max="100">100<br>
+    Task1 1<input type="range" name="sliderB_1" min="1" max="100" value="50">100<br>
+    Task2 1<input type="range" name="sliderB_1" min="1" max="100" value="50">100<br>
+    Task3 1<input type="range" name="sliderB_1" min="1" max="100" value="50">100<br>
 {% endif %}
    <input type="submit" value="送信">
 </form>
