@@ -121,7 +121,7 @@ def index():
     for i in bundle_a:
       bundle_a_text.append({'Task':"Task"+str(i+1), 'utility':v_a[i]})
     for i in bundle_b:
-      bundle_b_text.append({'Task':"Task"+str(i+1), 'utility':v_a[i]})
+      bundle_b_text.append({'Task':"Task"+str(i+1), 'utility':v_b[i]})
     
     value_table=[]
     table_1=['']
