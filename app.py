@@ -94,25 +94,48 @@ def index():
   if request.method == 'POST':
     alice_name = request.form['Alice']
     bob_name = request.form['Bob']
+    num_of_task = request.form.get('num_of_task')
     v_a=[]
-    for i in [1,2,3]:
+    print(request.form.getlist('sliderA_1'))
+    for i in request.form.getlist('sliderA_1'):
+      v_a.append(int(i))
+    
+    '''for i in [1,2,3]:
       vl_a='sliderA_'+str(i)
-      v_a.append(float(request.form.get(vl_a)))
+      v_a.append(float(request.form.get(vl_a)))'''
     v_b=[]
-    for i in [1,2,3]:
+    print(request.form.getlist('sliderB_1'))
+    for i in request.form.getlist('sliderB_1'):
+      v_b.append(int(i))
+    '''for i in [1,2,3]:
       vl_b='sliderB_'+str(i)
-      v_b.append(float(request.form.get(vl_b)))
-    #print(v_a,v_b)
+      v_b.append(float(request.form.get(vl_b)))'''
+    print(v_a,v_b)
+    if num_of_task:
+      num_of_task = range(int(num_of_task))
+    else:
+        num_of_task=range(len(v_a))
+    bundle_a, bundle_b = adjusted_winner(v_a,v_b)
     bundle_a_text=[]
     bundle_b_text=[]
-    bundle_a, bundle_b = adjusted_winner(v_a,v_b)
     for i in bundle_a:
-      bundle_a_text.append("Task"+str(i+1))
+      bundle_a_text.append({'Task':"Task"+str(i+1), 'utility':v_a[i]})
     for i in bundle_b:
-      bundle_b_text.append("Task"+str(i+1))
+      bundle_b_text.append({'Task':"Task"+str(i+1), 'utility':v_a[i]})
+    
+    value_table=[]
+    table_1=['']
+    for i in range(len(v_a)):
+      table_1.append('Task'+str(i+1))
+    value_table.append(table_1)
+    table_2=[alice_name]+v_a
+    value_table.append(table_2)
+    table_3=[bob_name]+v_b
+    value_table.append(table_3)
 
     return render_template('register.html',a1=bundle_a_text,a2=bundle_b_text
-    ,alice_name = alice_name,bob_name = bob_name)
+    ,alice_name = alice_name,bob_name = bob_name, value_table=value_table,
+    number_of_task=num_of_task)
   else:
     return render_template('register.html')
   
